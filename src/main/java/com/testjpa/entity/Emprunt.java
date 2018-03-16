@@ -6,8 +6,16 @@ package com.testjpa.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -15,38 +23,46 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="emprunt")
+@Table(name = "emprunt")
 public class Emprunt {
 
 	/**
 	 * id : int
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	/**
 	 * dateDebut : LocalDateTime
 	 */
+	@Column(name = "date_debut", nullable = false)
 	private LocalDateTime dateDebut;
 
 	/**
 	 * delai : int
 	 */
+	@Column(name = "delai")
 	private int delai;
 
 	/**
 	 * dateFin : LocalDateTime
 	 */
+	@Column(name = "date_fin")
 	private LocalDateTime dateFin;
 
 	/**
 	 * client : Client
 	 */
+	@ManyToOne
+	@JoinColumn(name = "id_client")
 	private Client client;
 
 	/**
 	 * livres : List<Livre>
 	 */
+	@ManyToMany
+	@JoinTable(name = "compo", joinColumns = @JoinColumn(name = "id_emprunt", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_client", referencedColumnName = "id"))
 	private List<Livre> livres;
 
 	/**
@@ -54,6 +70,18 @@ public class Emprunt {
 	 * 
 	 */
 	public Emprunt() {
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+
+		return "Prèt n°" + id + " du " + dateDebut.toString() + " au " + null + " pour le client "
+				+ client.toString() + " pour " + delai + " jour(s) ";
 	}
 
 	/**

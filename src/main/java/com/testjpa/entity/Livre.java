@@ -3,8 +3,14 @@
  */
 package com.testjpa.entity;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,17 +25,26 @@ public class Livre {
 	 * id : int
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	/**
 	 * titre : String
 	 */
+	@Column(name = "titre", nullable = false)
 	private String titre;
 
 	/**
 	 * auteur : String
 	 */
+	@Column(name = "auteur", nullable = false)
 	private String auteur;
+
+	/**
+	 * emprunts : List<Emprunt>
+	 */
+	@ManyToMany(mappedBy="livres")
+	private List<Emprunt> emprunts;
 
 	/**
 	 * Constructor
@@ -38,9 +53,10 @@ public class Livre {
 	public Livre() {
 		super();
 	}
-	
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -105,7 +121,23 @@ public class Livre {
 		this.auteur = auteur;
 	}
 
+	/**
+	 * Getter
+	 * 
+	 * @return the emprunts
+	 */
+	public List<Emprunt> getEmprunts() {
+		return emprunts;
+	}
 
-
+	/**
+	 * Setter
+	 * 
+	 * @param emprunts
+	 *            the emprunts to set
+	 */
+	public void setEmprunts(List<Emprunt> emprunts) {
+		this.emprunts = emprunts;
+	}
 
 }
