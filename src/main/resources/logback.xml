@@ -9,7 +9,7 @@
 
 	<!-- redirection vers un fichier -->
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>c:/temp/app.log</file>
+		<file>c:/temp/java/app.log</file>
 		<append>true</append>
 		<immediateFlush>true</immediateFlush>
 		<encoder>
@@ -18,13 +18,14 @@
 		</encoder>
 	</appender>
 
-	<!-- politique de log pour les classes du package dev.console -->
-	<logger name="dev.console" level="INFO">
+	<!-- politique de log pour les classes du package com.testjpa.standalone -->
+	<logger name="com.testjpa.standalone" level="INFO">
 		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<!-- règle de logs par défaut. Ici : niveau INFO vers la sortie standard -->
+	<!-- règle de logs par défaut. Ici : niveau DEBUG vers la sortie standard -->
 	<root level="DEBUG">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
 	</root>
 </configuration>
