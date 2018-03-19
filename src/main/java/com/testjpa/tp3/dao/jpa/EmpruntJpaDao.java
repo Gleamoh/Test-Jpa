@@ -1,4 +1,4 @@
-package com.testjpa.dao.jpa;
+package com.testjpa.tp3.dao.jpa;
 
 public class EmpruntJpaDao {
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.testjpa.entity;
+package com.testjpa.tp3.entity;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -18,8 +18,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name = "livre")
-public class Livre {
+@Table(name = "client")
+public class Client {
 
 	/**
 	 * id : int
@@ -27,31 +27,28 @@ public class Livre {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
 	/**
-	 * titre : String
+	 * nom : String
 	 */
-	@Column(name = "titre", nullable = false)
-	private String titre;
-
+	@Column(name = "nom", length = 50, nullable = false)
+	private String nom;
 	/**
-	 * auteur : String
+	 * prenom : String
 	 */
-	@Column(name = "auteur", nullable = false)
-	private String auteur;
+	@Column(name = "prenom", length = 50, nullable = false)
+	private String prenom;
 
 	/**
 	 * emprunts : List<Emprunt>
 	 */
-	@ManyToMany(mappedBy="livres")
+	@OneToMany(mappedBy = "client")
 	private List<Emprunt> emprunts;
 
 	/**
 	 * Constructor
 	 * 
 	 */
-	public Livre() {
-		super();
+	public Client() {
 	}
 
 	/*
@@ -61,7 +58,7 @@ public class Livre {
 	 */
 	@Override
 	public String toString() {
-		return "Livre n°" + getId() + " : " + titre + " écrit par " + auteur;
+		return "n° " + id + " " + prenom + " " + nom ;
 	}
 
 	/**
@@ -86,39 +83,39 @@ public class Livre {
 	/**
 	 * Getter
 	 * 
-	 * @return the titre
+	 * @return the nom
 	 */
-	public String getTitre() {
-		return titre;
+	public String getNom() {
+		return nom;
 	}
 
 	/**
 	 * Setter
 	 * 
-	 * @param titre
-	 *            the titre to set
+	 * @param nom
+	 *            the nom to set
 	 */
-	public void setTitre(String titre) {
-		this.titre = titre;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
 
 	/**
 	 * Getter
 	 * 
-	 * @return the auteur
+	 * @return the prenom
 	 */
-	public String getAuteur() {
-		return auteur;
+	public String getPrenom() {
+		return prenom;
 	}
 
 	/**
 	 * Setter
 	 * 
-	 * @param auteur
-	 *            the auteur to set
+	 * @param prenom
+	 *            the prenom to set
 	 */
-	public void setAuteur(String auteur) {
-		this.auteur = auteur;
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 	/**

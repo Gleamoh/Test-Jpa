@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.testjpa.entity;
+package com.testjpa.tp3.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;

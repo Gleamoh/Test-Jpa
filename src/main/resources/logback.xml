@@ -18,30 +18,39 @@
 		</encoder>
 	</appender>
 
-<!-- 	<appender name="FILE-JPA" class="ch.qos.logback.core.FileAppender">
-		<file>c:/temp/java/hibernate.log</file>
+	<appender name="FILE-JPA-DEBUG" class="ch.qos.logback.core.FileAppender">
+		<file>c:/temp/hibernate/debug.log</file>
 		<append>true</append>
 		<immediateFlush>true</immediateFlush>
 		<encoder>
-			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n
-			</pattern>
+			<pattern>>%msg%n</pattern>
 		</encoder>
-	</appender> -->
+	</appender>
+
+	<appender name="FILE-JPA-ERROR" class="ch.qos.logback.core.FileAppender">
+		<file>c:/temp/hibernate/error.log</file>
+		<append>true</append>
+		<immediateFlush>true</immediateFlush>
+		<encoder>
+			<pattern>>%msg%n</pattern>
+		</encoder>
+	</appender>
+
+
 
 	<!-- politique de log pour les classes du package com.testjpa.standalone -->
-	<logger name="com.testjpa.standalone" level="INFO">
-		<appender-ref ref="FILE" />
+	<logger name="com.testjpa" level="INFO">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
 	<!-- Log hibernate -->
-<!-- 	<logger name="org.hibernate" level="ERROR">
-		<appender-ref ref="FILE-JPA" />
-		<appender-ref ref="STDOUT" />
-	</logger> -->
+	<!-- <logger name="org.hibernate" level="DEBUG"> <appender-ref ref="FILE-JPA-DEBUG" 
+		/> </logger> -->
 
 	<!-- règle de logs par défaut. Ici : niveau DEBUG vers la sortie standard -->
 	<root level="DEBUG">
 		<appender-ref ref="FILE" />
 	</root>
+
+
 </configuration>

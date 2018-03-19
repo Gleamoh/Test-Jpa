@@ -1,11 +1,11 @@
-package com.testjpa.dao.jpa;
+package com.testjpa.tp3.dao.jpa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import com.testjpa.entity.Client;
+import com.testjpa.tp3.entity.Client;
 
 /**
  * @author Kevin M.

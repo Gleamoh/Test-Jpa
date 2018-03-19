@@ -1,4 +1,4 @@
-package com.testjpa.standalone;
+package com.testjpa.tp3.standalone;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import javax.persistence.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.testjpa.dao.jpa.ClientJpaDao;
-import com.testjpa.dao.jpa.JpaDao;
-import com.testjpa.entity.Client;
-import com.testjpa.entity.Emprunt;
+import com.testjpa.tp3.dao.jpa.ClientJpaDao;
+import com.testjpa.tp3.dao.jpa.JpaDao;
+import com.testjpa.tp3.entity.Client;
+import com.testjpa.tp3.entity.Emprunt;
 
 public class TestJpa {
 
