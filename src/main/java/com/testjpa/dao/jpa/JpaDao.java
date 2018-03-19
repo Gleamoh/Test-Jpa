@@ -1,6 +1,6 @@
 package com.testjpa.dao.jpa;
 
-public interface IJpaDao <T> {
+public interface JpaDao <T> {
 	
 	/**
 	 * @param id
