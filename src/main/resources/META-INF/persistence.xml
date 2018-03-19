@@ -22,6 +22,9 @@
 		<class>com.testjpa.tp4.entity.Compte</class>
 		<class>com.testjpa.tp4.entity.Operation</class>
 		<class>com.testjpa.tp4.entity.Client</class>
+		<class>com.testjpa.tp4.entity.Virement</class>
+		<class>com.testjpa.tp4.entity.LivretA</class>
+		<class>com.testjpa.tp4.entity.AssuranceVie</class>
 		<properties>
 			<!-- Cette propriété désactive l’auto-détection des entités dans les packages 
 				du proje -->

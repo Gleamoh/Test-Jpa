@@ -11,10 +11,13 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import com.testjpa.tp4.entity.Adresse;
+import com.testjpa.tp4.entity.AssuranceVie;
 import com.testjpa.tp4.entity.Banque;
 import com.testjpa.tp4.entity.Client;
 import com.testjpa.tp4.entity.Compte;
+import com.testjpa.tp4.entity.LivretA;
 import com.testjpa.tp4.entity.Operation;
+import com.testjpa.tp4.entity.Virement;
 
 public class Launcher {
 
@@ -73,8 +76,17 @@ public class Launcher {
 			em.persist(client);
 		}
 
+		// add operation sur le comte de noomi
+		
+		Operation virement = new Virement(0, LocalDateTime.now(), 48d, "Test", comptes.get(0), "Papi");
+		em.persist(virement);
+		
+		Compte assuranceVie = new AssuranceVie(0, "CP5000565", 875.95d, null, null, 3, LocalDate.now());
+		em.persist(assuranceVie);
+		Compte livretA = new LivretA(0, "CP5000565", 875.95d, null, null, 0.75);
+		em.persist(livretA);
+		
 		et.commit();
-
 		em.close();
 		emf.close();
 
